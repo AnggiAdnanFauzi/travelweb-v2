@@ -39,6 +39,11 @@ html.dark {
 
 *, *::before, *::after { box-sizing: border-box; }
 
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 body {
   margin: 0;
   font-family: var(--font-body);
@@ -364,3 +369,6 @@ a { color: inherit; text-decoration: none; }
   .pricing-card-v2 { padding: 1.25rem; }
   .faq-answer-panel { padding: 1.5rem; }
 }
+
+.cara-kerja-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+@media (max-width: 768px) { .cara-kerja-grid { grid-template-columns: 1fr; gap: 2rem; } }
