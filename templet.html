@@ -55,8 +55,8 @@ if (window.self === window.top) {
   trackPageView();
 }
 </script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>body, h1, h2, h3, h4, h5, h6, .font-heading, span, p, a, div { font-family: 'Poppins', sans-serif !important; }
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800&display=swap" rel="stylesheet">
+<style>body, h1, h2, h3, h4, h5, h6, .font-heading, span, p, a, div { font-family: 'Nunito', sans-serif !important; }
     /* Fallback for Tailwind arbitrary values */
     .bg-teal-custom { background-color: #00A8B5 !important; }
     .text-teal-custom { color: #00A8B5 !important; }
@@ -83,6 +83,7 @@ body { top: 0px !important; }
     /* Make sure hero text stays readable */
     html.dark .hero-overlay { background-color: rgba(0, 0, 0, 0.7) !important; }
 </style>
+    <link rel="stylesheet" href="style_v2.css">
 </head>
   <body>
     <div id="root">
@@ -93,57 +94,50 @@ body { top: 0px !important; }
 
 
 
-<nav class="fixed top-0 left-0 right-0 z-50 shadow-sm nav-bg transition-colors duration-300">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="flex items-center justify-between h-20">
+<!-- ========== NAVBAR ========== -->
+<nav class="navbar" id="navbar">
+  <div class="navbar-inner">
     <!-- Logo -->
-    <div class="flex items-center gap-3">
-        <a href="index.html" class="flex items-center gap-3 group">
-            <div class="w-10 h-10 rounded-xl flex items-center justify-center shadow-lg" style="background-color: #00A8B5;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
-            </div>
-            <div class="flex flex-col">
-                <span class="font-heading font-extrabold leading-none tracking-tight text-xl" style="color: #003344;">Travel<span style="color: #00A8B5;">Web</span></span>
-                <span class="text-[10px] font-bold tracking-widest uppercase mt-0.5" style="color: #00A8B5;">Specialist</span>
-            </div>
-        </a>
+    <a href="index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none;">
+      <div style="width:42px;height:42px;background:#00A8B5;border-radius:10px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,168,181,0.35);">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
+      </div>
+      <div>
+        <div style="font-family:'Nunito',sans-serif;font-weight:800;font-size:1.25rem;color:#003344;line-height:1;"><span style="color:#00A8B5;">Travel</span>Web</div>
+        <div style="font-size:9px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#00A8B5;margin-top:2px;">Specialist</div>
+      </div>
+    </a>
+    <!-- Nav Pill -->
+    <div class="nav-pill" style="display:none;" id="nav-desktop">
+      <a href="index.html#solutions" class="active">Solusi</a>
+      <a href="index.html#pricing">Produk</a>
+      <a href="templet.html">Template</a>
+      <a href="index.html#features">Fitur</a>
+      <a href="index.html#portfolio">Portofolio</a>
+      <a href="index.html#faq">FAQ</a>
     </div>
-    
-    <!-- Navigation Menus wrapped in 1 floating 3D blue box -->
-    <div class="hidden lg:flex items-center">
-        <div class="px-6 py-2.5 rounded-full flex items-center gap-6" style="background-color: #00A8B5; box-shadow: 0 10px 25px -5px rgba(0,168,181, 0.4), inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.1);">
-            <a href="index.html#solutions" class="text-sm font-semibold text-white hover:text-white/80 transition-colors">Solusi</a>
-            <a href="index.html#products" class="text-sm font-semibold text-white hover:text-white/80 transition-colors">Produk</a>
-            <a href="templet.html" class="text-sm font-semibold text-white hover:text-white/80 transition-colors">Template</a>
-            <a href="index.html#features" class="text-sm font-semibold text-white hover:text-white/80 transition-colors">Fitur</a>
-            <a href="index.html#portfolio" class="text-sm font-semibold text-white hover:text-white/80 transition-colors">Portofolio</a>
-            <a href="index.html#faq" class="text-sm font-semibold text-white hover:text-white/80 transition-colors">FAQ</a>
-        </div>
-    </div>
-    
     <!-- Right Actions -->
-    <div class="flex items-center gap-1.5 lg:gap-4">
-        <!-- Language -->
-        <div class="relative">
-            <button id="langBtn" class="flex items-center gap-1 px-2 py-1.5 text-xs rounded-lg transition-colors text-gray-500 hover:text-gray-900 hover:bg-gray-100">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
-                <span class="text-[11px] font-medium">ID</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 transition-transform"><path d="m6 9 6 6 6-6"></path></svg>
-            </button>
-        </div>
-        <!-- Dark Mode -->
-        <button id="darkModeBtn" class="p-1.5 rounded-lg transition-colors text-gray-500 hover:text-gray-900 hover:bg-gray-100">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
-        </button>
-        <!-- CTA -->
-        <a href="https://wa.me/6282258289996" target="_blank" class="inline-flex px-4 lg:px-6 py-2 lg:py-2.5 rounded-full text-white text-sm font-bold shadow-lg transition-all hover:-translate-y-0.5" style="background-color: #003344;">Konsultasi Gratis</a>
-        <!-- Mobile Menu Button -->
-        <button class="hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
-        </button>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <button id="darkModeBtn" style="width:36px;height:36px;border-radius:8px;border:1px solid var(--border);background:transparent;cursor:pointer;color:var(--text-muted);display:flex;align-items:center;justify-content:center;" aria-label="Toggle Dark Mode">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+      </button>
+      <a href="https://wa.me/6282258289996" target="_blank" class="btn-konsultasi" style="display:inline-flex;align-items:center;padding:0.6rem 1.25rem;background:#003344;color:white;border-radius:999px;font-size:0.8rem;font-weight:700;box-shadow:0 4px 12px rgba(0,51,68,0.3);text-decoration:none;">Konsultasi Gratis</a>
+      <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
     </div>
-</div>
-</div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html#solutions" class="mob-link active">Solusi</a>
+    <a href="index.html#pricing" class="mob-link">Produk</a>
+    <a href="templet.html" class="mob-link">Template</a>
+    <a href="index.html#features" class="mob-link">Fitur</a>
+    <a href="index.html#portfolio" class="mob-link">Portofolio</a>
+    <a href="index.html#faq" class="mob-link">FAQ</a>
+    <a href="https://wa.me/6282258289996" target="_blank" style="color:#00A8B5;">Konsultasi Gratis →</a>
+  </div>
 </nav>
         
         
@@ -4559,7 +4553,27 @@ function googleTranslateElementInit() {
 </script>
 <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
+
+<script>
+// ---- Mobile Menu Toggle ----
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+if (mobileMenuBtn && mobileMenu) {
+  mobileMenuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('active'); });
+}
+
+// Active state for Template link
+document.addEventListener('DOMContentLoaded', () => {
+  const links = document.querySelectorAll('.nav-pill a, .mobile-menu a');
+  links.forEach(a => {
+    if(a.getAttribute('href') === 'templet.html' || a.textContent.includes('Template')) {
+      a.classList.add('active');
+    }
+  });
+});
+</script>
 </body>
+
 
 </html>
 
