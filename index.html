@@ -26,7 +26,7 @@
       </div>
     </a>
     <!-- Nav Pill -->
-    <div class="nav-pill" style="display:none;" id="nav-desktop">
+    <div class="nav-pill" id="nav-desktop">
       <a href="#solutions" class="active">Solusi</a>
       <a href="#pricing">Produk</a>
       <a href="templet.html">Template</a>
@@ -925,14 +925,7 @@ darkBtn.addEventListener('click', () => {
   localStorage.setItem('theme-v2', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
 });
 
-// ---- Navbar pill show on desktop ----
-const navDesktop = document.getElementById('nav-desktop');
-function checkWidth() {
-  if (window.innerWidth >= 1024) navDesktop.style.display = 'flex';
-  else navDesktop.style.display = 'none';
-}
-checkWidth();
-window.addEventListener('resize', checkWidth);
+
 
 
 // ---- Mobile Menu Toggle ----

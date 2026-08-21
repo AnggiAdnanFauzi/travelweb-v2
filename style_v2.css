@@ -356,6 +356,7 @@ a { color: inherit; text-decoration: none; }
 
 @media (max-width: 1024px) {
   .mobile-menu-btn { display: flex; }
+  .nav-pill { display: none !important; }
 }
 @media (max-width: 640px) {
   .bento-grid { grid-template-columns: 1fr; }
