@@ -36,11 +36,25 @@
     </div>
     <!-- Right Actions -->
     <div style="display:flex;align-items:center;gap:12px;">
-      <button id="darkModeBtn" style="width:36px;height:36px;border-radius:8px;border:1px solid var(--border);background:transparent;cursor:pointer;color:var(--text-muted);display:flex;align-items:center;justify-content:center;">
+      <button id="darkModeBtn" style="width:36px;height:36px;border-radius:8px;border:1px solid var(--border);background:transparent;cursor:pointer;color:var(--text-muted);display:flex;align-items:center;justify-content:center;" aria-label="Toggle Dark Mode">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
       </button>
-      <a href="https://wa.me/6282258289996" target="_blank" style="display:inline-flex;align-items:center;padding:0.6rem 1.25rem;background:#003344;color:white;border-radius:999px;font-size:0.8rem;font-weight:700;box-shadow:0 4px 12px rgba(0,51,68,0.3);text-decoration:none;">Konsultasi Gratis</a>
+      <a href="https://wa.me/6282258289996" target="_blank" class="btn-konsultasi" style="display:inline-flex;align-items:center;padding:0.6rem 1.25rem;background:#003344;color:white;border-radius:999px;font-size:0.8rem;font-weight:700;box-shadow:0 4px 12px rgba(0,51,68,0.3);text-decoration:none;">Konsultasi Gratis</a>
+      <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
     </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#solutions" class="mob-link">Solusi</a>
+    <a href="#pricing" class="mob-link">Produk</a>
+    <a href="templet.html" class="mob-link">Template</a>
+    <a href="#features" class="mob-link">Fitur</a>
+    <a href="#portfolio" class="mob-link">Portofolio</a>
+    <a href="#faq" class="mob-link">FAQ</a>
+    <a href="https://wa.me/6282258289996" target="_blank" style="color:#00A8B5;">Konsultasi Gratis →</a>
   </div>
 </nav>
 
@@ -887,6 +901,25 @@ function checkWidth() {
 }
 checkWidth();
 window.addEventListener('resize', checkWidth);
+
+
+// ---- Mobile Menu Toggle ----
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobLinks = document.querySelectorAll('.mob-link');
+
+if (mobileMenuBtn && mobileMenu) {
+  mobileMenuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('active');
+  });
+  
+  // Close menu when a link is clicked
+  mobLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+    });
+  });
+}
 
 // ---- Pricing Tabs ----
 const tabs = document.querySelectorAll('.pricing-tab');
