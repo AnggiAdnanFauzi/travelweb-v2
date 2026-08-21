@@ -27,7 +27,7 @@
     </a>
     <!-- Nav Pill -->
     <div class="nav-pill" style="display:none;" id="nav-desktop">
-      <a href="#solutions">Solusi</a>
+      <a href="#solutions" class="active">Solusi</a>
       <a href="#pricing">Produk</a>
       <a href="templet.html">Template</a>
       <a href="#features">Fitur</a>
@@ -48,7 +48,7 @@
 
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#solutions" class="mob-link">Solusi</a>
+    <a href="#solutions" class="mob-link active">Solusi</a>
     <a href="#pricing" class="mob-link">Produk</a>
     <a href="templet.html" class="mob-link">Template</a>
     <a href="#features" class="mob-link">Fitur</a>
@@ -884,6 +884,38 @@
 <script src="templatesData.js"></script>
 <script src="renderPortfolio_v2.js"></script>
 <script>
+
+// ---- Scroll-spy for Navbar Active State ----
+const sections = document.querySelectorAll('section');
+const navLinksDesktop = document.querySelectorAll('.nav-pill a');
+const navLinksMobile = document.querySelectorAll('.mobile-menu a');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+    // Check if we're within the section bounds
+    if (window.scrollY >= (sectionTop - 150)) {
+      current = section.getAttribute('id');
+    }
+  });
+
+  navLinksDesktop.forEach(a => {
+    a.classList.remove('active');
+    if (current && a.getAttribute('href') === `#${current}`) {
+      a.classList.add('active');
+    }
+  });
+
+  navLinksMobile.forEach(a => {
+    a.classList.remove('active');
+    if (current && a.getAttribute('href') === `#${current}`) {
+      a.classList.add('active');
+    }
+  });
+});
+
 // ---- Dark Mode ----
 const darkBtn = document.getElementById('darkModeBtn');
 const savedTheme = localStorage.getItem('theme-v2');
