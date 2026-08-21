@@ -58,7 +58,7 @@ async function renderPortfolioV2(filterCat = 'All') {
                 </div>
                 <div style="padding:1.25rem;background:var(--bg-card);">
                     <h3 style="font-family:'DM Serif Display',serif;font-size:0.95rem;margin:0 0 0.5rem;color:var(--text);">${item.title}</h3>
-                    <p style="font-size:0.75rem;color:var(--text-muted);margin:0 0 1rem;">Pembuat: ${item.creator || 'WebTravel'} &nbsp;·&nbsp; Batch ${item.batch || '1'}</p>
+                    <p style="font-size:0.75rem;color:var(--text-muted);margin:0 0 1rem;">Katalog: <strong style="color:var(--text);">${item.category}</strong></p>
                     <div style="display:flex;gap:0.625rem;">
                         <a href="${item.url}" target="_blank" rel="noopener noreferrer" style="flex:1;text-align:center;padding:0.5rem;border-radius:8px;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;background:linear-gradient(135deg,#00A8B5,#00828F);color:white;transition:opacity 0.2s;">Demo</a>
                         <a href="#contact" style="flex:1;text-align:center;padding:0.5rem;border-radius:8px;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;border:2px solid #00A8B5;color:#00A8B5;transition:all 0.2s;" onmouseover="this.style.background='#00A8B5';this.style.color='white';" onmouseout="this.style.background='transparent';this.style.color='#00A8B5';">Pesan</a>
